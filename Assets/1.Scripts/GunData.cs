@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class GunData : MonoBehaviour
+[CreateAssetMenu(menuName = "Scriptable/GunData", fileName = "Gun Data")]
+public class GunData : ScriptableObject
 {
     public AudioClip shotClip; // 惯荤家府
     public AudioClip reloadClip; // 厘傈家府
