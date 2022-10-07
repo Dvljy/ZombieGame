@@ -33,8 +33,8 @@ public class Gun : MonoBehaviour
 
     private void Awake()
     {   //사용할 컴포넌트 참조 가져오기
-        fireTransform = GetComponent<Transform>();
         bulletLineRenderer = GetComponent<LineRenderer>();
+        gunAudioPlayer = GetComponent<AudioSource>();
 
         bulletLineRenderer.positionCount = 2; //사용할 점을 두개로 변경
         bulletLineRenderer.enabled = false; // 라인 렌더러 비활성화
@@ -50,7 +50,7 @@ public class Gun : MonoBehaviour
         lastFireTime = 0;
     }
 
-    private void Fire() // 발사 시도
+    public void Fire() // 발사 시도
     {
         if (state == State.Ready && Time.time >= lastFireTime + gunData.timeBetFire)
         {
@@ -94,7 +94,7 @@ public class Gun : MonoBehaviour
         }
         
         //발사 이펙트 재생 시작
-        StartCoroutine(ShotEffect(hitposition));
+        StartCoroutine("ShotEffect",hitposition);
         //남은 탄알 수-1
         magAmmo--;
         if (magAmmo <= 0)
@@ -134,7 +134,7 @@ public class Gun : MonoBehaviour
         }
 
         //재장전 처리 시작
-        StartCoroutine(ReloadRoutine());
+        StartCoroutine("ReloadRoutine");
         return true;
     }
 

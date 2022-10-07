@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 24f69f0bd1cfa034fb279e05e7bdcbcc
+guid: 941454ad01f5146499f94f1d37e6bc96
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - shotClip: {instanceID: 0}
-  - reloadClip: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
