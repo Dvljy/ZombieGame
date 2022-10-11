@@ -18,7 +18,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         health = startingHealth;
     }
 
-    public void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
+    public virtual void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
     {
         health -= damage;
 
@@ -28,7 +28,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         }
     }
 
-    protected virtual void RestoreHealth(float newHealth)
+    public virtual void RestoreHealth(float newHealth)
     {
         if (dead)
         {
@@ -37,12 +37,17 @@ public class LivingEntity : MonoBehaviour, IDamageable
         health += newHealth;
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
         if (onDeath != null)
         {
             onDeath();
         }
         dead = true;
+    }
+
+    void IDamageable.RestoreHealth(float newHealth)
+    {
+
     }
 }
