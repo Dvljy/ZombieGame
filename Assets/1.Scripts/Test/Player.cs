@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        UImanager.instance.SetActiveGameoverUI(true);
         onDeath();
     }
 }
